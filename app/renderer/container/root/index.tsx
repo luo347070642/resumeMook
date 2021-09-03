@@ -1,19 +1,19 @@
 import React from 'react'
 import './index.less'
-import Logo from '@src/assets/logo.png'
+import Logo from '@assets/logo.png'
 import { useHistory } from 'react-router'
 import { shell } from 'electron'
+import { ROUTER_ENTRY } from '@common/constants/router'
+import { isHttpsOrHttpUrl } from '@common/utils/router'
 
 function Root() {
   const history = useHistory()
 
-  const onRouterToLink = (text: string) => {
-    if (text === '简历') {
-      console.log('跳转到简历页面')
-      history.push('/resume')
+  const onRouterToLink = (router: TSRouter.Item) => {
+    if (isHttpsOrHttpUrl(router.url)) {
+      shell.openExternal(router.url)
     } else {
-      console.log('进入到 github ')
-      shell.openExternal('')
+      history.push(router.url)
     }
   }
   return (
@@ -23,9 +23,9 @@ function Root() {
         <div styleName='title'>标题</div>
         <div styleName='tips'>这是一个标题介绍</div>
         <div styleName='action'>
-          {['介绍', '简历', '源码'].map((text, index) => (
-            <div styleName='item' key={index} onClick={() => onRouterToLink(text)}>
-              {text}
+          {ROUTER_ENTRY.map((router: TSRouter.Item) => (
+            <div styleName='item' key={router.key} onClick={() => onRouterToLink(router)}>
+              {router.text}
             </div>
           ))}
         </div>
