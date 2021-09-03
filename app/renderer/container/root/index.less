@@ -1,0 +1,60 @@
+.root {
+	overflow: hidden;
+	width: 100vw;
+	height: 100vh;
+	background-color: #27292c;
+	text-align: center;
+	.container {
+		padding: 1px;
+		padding-top: calc(8vh + 60px);
+		width: 100%;
+		color: #fff;
+		img {
+			width: 112px;
+			height: 112px;
+		}
+		.title {
+			line-height: 36px;
+			font-size: 24px;
+		}
+		.tips {
+			margin-top: 24px;
+			line-height: 24px;
+			font-size: 16px;
+		}
+		.theme {
+			margin: 24px 0;
+			height: 30px;
+		}
+
+		.action {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+			margin-top: 24px;
+			width: 300px;
+			.item {
+				width: 25%;
+				cursor: pointer;
+			}
+		}
+
+		.copyright {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			.footer {
+				padding-top: 16px;
+				padding-bottom: 16px;
+				.copyright {
+					margin: 0 55px;
+					opacity: .6;
+					line-height: 30px;
+					text-align: center;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
