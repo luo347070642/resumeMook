@@ -9,3 +9,4 @@ declare module '*.png' {
 }
 
 declare module 'electron'
+declare module 'rc-redux-model'

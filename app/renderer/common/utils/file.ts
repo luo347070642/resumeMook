@@ -1,0 +1,64 @@
+import fs, { promises } from 'fs'
+import { rename } from 'original-fs'
+
+const fileAction = {
+  /**
+   * @description 读取文件内容
+   * @param path 路径
+   * @returns {Promise}
+   */
+  read(path: string, encoding?: BufferEncoding): Promise<string> {
+    return promises.readFile(path, { encoding: encoding ?? 'utf-8' })
+  },
+  /**
+   * @description 写入文件内容
+   * @param path 路径
+   * @returns {Promise}
+   */
+  write(path: string, content: string, encoding?: BufferEncoding): Promise<void> {
+    return promises.writeFile(path, content, { encoding: encoding ?? 'utf-8' })
+  },
+  /**
+   * @description 重命名文件
+   * @param {string} oldPath 旧地址
+   * @param {string} newPath 新地址
+   * @returns {Promise}
+   */
+  rename(oldPath: string, newPath: string): Promise<void> {
+    return promises.rename(oldPath, newPath)
+  },
+  /**
+   * @description 删除文件
+   * @param path 路径
+   * @returns {Promise}
+   */
+  delete(path: string): Promise<void> {
+    return promises.unlink(path)
+  },
+  /**
+   * @description 是否存在文件
+   * @param path 路径
+   * @returns {Promise}
+   */
+  hasFile(path: string): Promise<void> {
+    return promises.access(path, fs.constants.F_OK)
+  },
+  /**
+   * @description 是否可写入此文件
+   * @param path 路径
+   * @returns {Promise}
+   */
+  canWrite(path: string): Promise<void> {
+    return promises.access(path, fs.constants.W_OK)
+  },
+  /**
+   * @description 是否可读此文件
+   * @param path 路径
+   * @returns {Promise}
+   */
+  canRead(path: string): Promise<void> {
+    return promises.access(path, fs.constants.R_OK)
+  },
+}
+
+export default fileAction
