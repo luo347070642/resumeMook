@@ -1,0 +1,123 @@
+.slider {
+	box-sizing: border-box;
+	padding: 16px;
+	border-radius: 6px;
+	width: 280px;
+	background-color: #fff;
+	font-size: 14px;
+	.module {
+		font-size: 14px;
+		.title {
+			position: relative;
+			margin-bottom: 16px;
+			padding-left: 12px;
+			line-height: 22px;
+			font-size: 14px;
+			color: #505667;
+			&.un-first {
+				margin-top: 24px;
+			}
+			.line {
+				position: absolute;
+				left: 0;
+				top: 4px;
+				width: 3px;
+				height: 14px;
+				background-color: rgb(39, 41, 44);
+			}
+		}
+		.content {
+			.box {
+				display: flex;
+				position: relative;
+				justify-content: flex-start;
+				align-items: center;
+				margin-bottom: 12px;
+				padding: 0 22px;
+				border-radius: 8px;
+				height: 72px;
+				background-color: #fbfbfb;
+				cursor: pointer;
+				user-select: none;
+				&:hover {
+					.info {
+						.tips {
+							display: block;
+						}
+						.action {
+							display: inline-flex;
+						}
+					}
+				}
+				.info {
+					display: flex;
+					.icon {
+						margin-right: 8px;
+						margin-top: 2px;
+						width: 16px;
+						height: 16px;
+						background: url("../../../../../assets/icon/work.png") no-repeat;
+						background-size: cover;
+					}
+					.text {
+						.name {
+							font-size: 14px;
+							color: #505667;
+						}
+						.summary {
+							overflow: hidden;
+							margin-top: 4px;
+							text-overflow: ellipsis;
+							font-size: 12px;
+							color: #aeb2bd;
+							word-break: keep-all;
+							white-space: nowrap;
+						}
+					}
+					.tips {
+						display: none;
+						position: absolute;
+						right: 0;
+						top: 0;
+						border-top-right-radius: 8px;
+						border-bottom-left-radius: 8px;
+						width: 60px;
+						height: 20px;
+						background-color: #505667;
+						line-height: 20px;
+						text-align: center;
+						font-size: 12px;
+						color: #fff;
+					}
+					.action {
+						display: none;
+						position: absolute;
+						right: 0;
+						top: 18px;
+						width: 40px;
+						height: 20px;
+						.edit {
+							margin-right: 8px;
+							width: 16px;
+							height: 16px;
+							background: url("../../../../../assets/icon/edit.png") no-repeat;
+							background-size: cover;
+						}
+						.delete {
+							width: 16px;
+							height: 16px;
+							background: url("../../../../../assets/icon/delete.png") no-repeat;
+							background-size: cover;
+						}
+						.add {
+							width: 16px;
+							height: 16px;
+							background: url("../../../../../assets/icon/add.png") no-repeat;
+							background-size: cover;
+						}
+					}
+				}
+			}
+		}
+	}
+}
